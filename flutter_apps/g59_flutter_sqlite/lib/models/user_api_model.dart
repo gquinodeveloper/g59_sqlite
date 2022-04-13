@@ -1,0 +1,34 @@
+class UserApiModel {
+  UserApiModel({
+    this.id = 0,
+    this.email,
+    this.firstName = "",
+    this.lastName = "",
+    this.avatar,
+  });
+
+  late int id;
+  String? email;
+  late String firstName;
+  late String lastName;
+  String? avatar;
+
+  factory UserApiModel.fromJson(Map<String, dynamic> json) {
+    print("Registro: $json");
+    return UserApiModel(
+      id: json["id"],
+      email: json["email"],
+      firstName: json["first_name"],
+      lastName: json["last_name"],
+      avatar: json["avatar"],
+    );
+  }
+
+  Map<String, dynamic> toJson() => {
+        "id": id,
+        "email": email,
+        "first_name": firstName,
+        "last_name": lastName,
+        "avatar": avatar,
+      };
+}
